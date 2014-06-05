@@ -1,0 +1,65 @@
+<!doctype html>
+
+<title>QuickCode</title>
+<meta charset="utf-8"/>
+
+<link rel=stylesheet href="lib/codemirror.css">
+<!-- <link rel=stylesheet href="doc/docs.css"> -->
+<script src="lib/codemirror.js"></script>
+<script src="mode/xml/xml.js"></script>
+<script src="mode/javascript/javascript.js"></script>
+<script src="mode/css/css.js"></script>
+<script src="mode/htmlmixed/htmlmixed.js"></script>
+<script src="mode/javascript/javascript.js"></script>
+<script src="mode/go/go.js"></script>
+<script src="mode/python/python.js"></script>
+<script src="addon/edit/matchbrackets.js"></script>
+<script src="lib/jquery.js"></script>
+
+<style>
+    html { margin-top:30px; }
+  .CodeMirror { height: auto; border: 1px solid #ddd; }
+  .CodeMirror-scroll { max-height: 200px; }
+  .CodeMirror pre { padding-left: 7px; line-height: 1.25; }
+</style>
+<br>
+<section id="demo">
+<textarea id="demotext">
+</textarea>
+<br>
+<center><a onClick="locationChange()" style="color:#1e90f0; font-family: Arial, Helvetica, sans-serif;">Compile</a></center>
+<div id="output">
+</div>
+  <script>
+      var editor;
+    function initCode(lang, code) {
+        code = code.replace(/{/g, '{\n');
+        code = code.replace(/}/g, '\n}');
+        document.getElementById('demotext').innerHTML = code;
+        if (lang == "java") { lang = "go"; }
+        editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+            lineNumbers: true,
+            mode: lang,
+            matchBrackets: true
+        });
+    }
+  function updateTheEditor(lang, code) {
+      if (lang == "java") { lang = "go"; }
+      code = code.replace(/{/g, '{\n');
+      code = code.replace(/}/g, '\n}');
+      editor.setOption("mode", lang);
+      editor.setValue(code);
+      
+      $('#output').html("");
+  }
+  function showOutput(result) {
+     document.getElementById('output').innerHTML = "<h3>Output</h3><br><h3>" + result + "</h3>";
+  }
+  function locationChange() {
+      window.location  = "ios:webToNativeCall";
+  }
+  function getModifiedCode() {
+      return editor.getValue();
+  }
+  </script>
+</section>

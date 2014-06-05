@@ -1,0 +1,14 @@
+{
+  "name": "WWDC",
+  "version": "0.0.0",
+  "dependencies": {
+    "express": "3.x",
+    "ejs": ">= 0.0.0",
+    "email-templates": "0.1.8",
+    "nodemailer": "0.6.1",
+    "path": "0.4.9",
+    "request": "2.27.0",
+    "stylus": "0.38.0"
+  },
+  "author": "Zuhayeer Musa"
+}
