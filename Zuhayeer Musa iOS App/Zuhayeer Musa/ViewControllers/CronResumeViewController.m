@@ -1,6 +1,6 @@
 //
 //  CronResumeViewController.m
-//  iOS7Sampler
+//  Zuhayeer Musa
 //
 //  Created by Zuhayeer Musa on 4/4/14.
 //  Copyright (c) 2014 Zuhayeer Musa. All rights reserved.
